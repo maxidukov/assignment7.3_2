@@ -4,7 +4,7 @@
 #include <vector>
 
 template<class Iter, class Function>
-void for_each_par(Iter begin, Iter end, Function func){
+void for_each_par(Iter begin, Iter end, Function& func){
     int numthreads  = std::thread::hardware_concurrency();
     int block_size = (end-begin)/numthreads + 1; //  WORKS FOR RANDOM ACCESS ITERATORS, IN GENERAL std::distance(begin, end)/numthreads + 1
     std::cout << "Number of threads available is " << numthreads << ", container size is " << (end-begin) << ", block size is " << block_size << "\n";
